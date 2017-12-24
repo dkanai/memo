@@ -5,25 +5,11 @@ class Memo
   end
 
   def run
-    if @operation == 1
-      create
-    elsif @operation == 2
-      read
-    else 
-      delete
-    end
+    {
+      1 => MemoCreater.new,
+      2 => MemoReader.new,
+      3 => MemoDeleter.new,
+    }[@operation].run
   end
 
-end
-
-def create
-  'create'
-end
-
-def read
-  'read'
-end
-
-def delete
-  'delete'
 end
