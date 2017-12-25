@@ -1,5 +1,7 @@
 RSpec.configure do |config|
-  Dir[File.expand_path('../../src', __FILE__) + '/*.rb'].each { |file| require file }
+  Dir.glob('src/**/*.rb').each { |file|
+   require File.expand_path("../../#{file}", __FILE__)
+  }
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

@@ -1,7 +1,7 @@
 class MemoCreater
 
   def run
-    'create'
+    StdIn.gets
   end
 
 end
