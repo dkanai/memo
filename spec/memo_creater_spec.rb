@@ -6,13 +6,28 @@ describe 'run' do
 
   subject {MemoCreater.new.run}
 
-  it do
-    allow(StdIn).to receive(:gets).and_return('memo') 
-    subject
+  let(:file_data) {
+    file_data = []
     File.open(MemoFile.new.file_path) do |file|
       file.each_line do |line|
-        expect(line).to eq 'memo'
+        file_data.push(line)
       end
     end
+    return file_data
+  }
+
+  it 'create new file with memo' do
+    allow(StdIn).to receive(:gets).and_return('memo') 
+    subject
+    expect(file_data).to include "memo\n"
+  end
+
+  it 'append memo to exist file' do
+    allow(StdIn).to receive(:gets).and_return('memo') 
+    MemoCreater.new.run
+    allow(StdIn).to receive(:gets).and_return('memo2') 
+    MemoCreater.new.run
+    expect(file_data).to include "memo\n"
+    expect(file_data).to include "memo2\n"
   end
 end

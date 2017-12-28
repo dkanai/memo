@@ -4,7 +4,7 @@ class MemoFile
   end
 
   def append(memo)
-    File.open(file_path, 'a') { |f| f.write(memo) }
+    File.open(file_path, 'a') { |f| f.puts(memo) }
   end
 
 end
