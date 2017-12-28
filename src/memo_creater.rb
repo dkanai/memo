@@ -1,7 +1,9 @@
 class MemoCreater
 
   def run
-    StdIn.gets
+    memo = StdIn.gets
+    MemoFile.new.append(memo)
+    'create'
   end
 
 end
