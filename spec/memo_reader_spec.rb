@@ -11,9 +11,9 @@ describe 'run' do
 
   subject {MemoReader.new.run}
 
-  it 'read file memo' do
-    expect(subject).to include "memo\n"
-    expect(subject).to include "memo2\n"
+  it 'read file memo with line number' do
+    expect(subject).to include "1.memo\n"
+    expect(subject).to include "2.memo2\n"
   end
 
 end

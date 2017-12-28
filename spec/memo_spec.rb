@@ -16,7 +16,7 @@ describe 'run' do
   end
   it do
     @operation = 2
-    expect(subject).to include "memo\n"
+    expect(subject).to include "1.memo\n"
   end
   it do
     @operation = 3
