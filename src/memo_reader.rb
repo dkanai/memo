@@ -1,7 +1,7 @@
 class MemoReader
 
   def run
-    'read'
+    MemoFile.new.read
   end
 
 end
