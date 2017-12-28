@@ -9,25 +9,19 @@ class MemoFile
   end
 
   def delete(line_num)
-    out = ""
+    output = ''
     File.open(MemoFile.new.file_path) do |file|
       file.each_line do |line|
-        out << line if file.lineno != line_num.chop.to_i
+        output << line if file.lineno != line_num.chop.to_i
       end
     end
     open(MemoFile.new.file_path,"w") do |f|
-      f.write out
+      f.write output
     end
   end
 
   def read
-    file_data = []
-    File.open(MemoFile.new.file_path) do |file|
-      file.each_line do |line|
-        file_data.push(line)
-      end
-    end
-    file_data
+    File.foreach(MemoFile.new.file_path).map { |line| line }
   end
 
   def read_with_index
