@@ -12,7 +12,7 @@ describe 'run' do
   it do
     @operation = 1
     allow(StdIn).to receive(:gets).and_return('create') 
-    expect(subject).to eq 'create'
+    expect(subject).to eq 'created memo'
   end
   it do
     @operation = 2

@@ -1,4 +1,5 @@
 class MemoFile
+
   def file_path
     'data/memo.txt'
   end
@@ -15,6 +16,12 @@ class MemoFile
       end
     end
     file_data
+  end
+
+  def read_with_index
+    read.map.with_index do |line, index|
+      "#{index+1}.#{line}"
+    end
   end
 
 end

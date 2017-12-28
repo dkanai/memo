@@ -1,10 +1,7 @@
 class MemoReader
 
   def run
-    file_data = MemoFile.new.read
-    file_data.map.with_index do |line, index|
-      "#{index+1}.#{line}"
-    end
+    file_data = MemoFile.new.read_with_index
   end
 
 end
