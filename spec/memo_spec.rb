@@ -8,7 +8,7 @@ describe 'run' do
     File.delete(MemoFile.new.file_path)
   end
 
-  subject {Memo.new(@operation).run}
+  subject {MemoOperator.new(@operation).run}
   it do
     @operation = 1
     allow(StdIn).to receive(:gets).and_return('create') 
@@ -19,6 +19,7 @@ describe 'run' do
     expect(subject).to include "1.memo\n"
   end
   it do
+    allow(StdIn).to receive(:gets).and_return("1") 
     @operation = 3
     expect(subject).to eq 'delete'
   end

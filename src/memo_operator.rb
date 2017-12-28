@@ -1,4 +1,4 @@
-class Memo
+class MemoOperator
 
   def initialize(operation)
     @operation = operation
