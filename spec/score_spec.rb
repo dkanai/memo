@@ -1,15 +1,13 @@
 describe 'run' do
 
   before do
-    MemoFile.new.append("100")
+    File.delete(ScoreFile.new.file_path) if File.exist?(ScoreFile.new.file_path)
+    ScoreFile.new.append("100")
     allow(StdOut).to receive(:print).and_return('') 
   end
 
-  after do
-    File.delete(MemoFile.new.file_path)
-  end
+  subject {ScoreOperator.new(@operation).run}
 
-  subject {MemoOperator.new(@operation).run}
   it do
     @operation = 1
     allow(StdIn).to receive(:gets).and_return('10') 
@@ -25,7 +23,7 @@ describe 'run' do
     expect(subject).to eq ">Successfully deleted score\n"
   end
   it do
-    MemoFile.new.append("0")
+    ScoreFile.new.append("0")
     @operation = 4
     expect(subject).to eq ">Score Average: 50.0"
   end

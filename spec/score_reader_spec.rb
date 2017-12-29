@@ -1,16 +1,13 @@
 describe 'run' do
 
   before do
+    File.delete(ScoreFile.new.file_path) if File.exist?(ScoreFile.new.file_path)
     allow(StdOut).to receive(:print).and_return('') 
-    MemoFile.new.append("memo")
-    MemoFile.new.append("memo2")
+    ScoreFile.new.append("memo")
+    ScoreFile.new.append("memo2")
   end
 
-  after do
-    File.delete(MemoFile.new.file_path)
-  end
-
-  subject {MemoReader.new.run}
+  subject {ScoreReader.new.run}
 
   it 'read file memo with line number' do
     expect(subject).to include "1.memo\n"

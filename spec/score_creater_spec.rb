@@ -1,6 +1,6 @@
 describe 'run' do
 
-  subject {MemoCreater.new.run}
+  subject {ScoreCreater.new.run}
 
   before do
     allow(StdOut).to receive(:print).and_return('') 
@@ -8,7 +8,7 @@ describe 'run' do
 
   let(:file_data) {
     file_data = []
-    File.open(MemoFile.new.file_path) do |file|
+    File.open(ScoreFile.new.file_path) do |file|
       file.each_line do |line|
         file_data.push(line)
       end
@@ -17,8 +17,8 @@ describe 'run' do
   }
 
   context 'valid' do
-    after do
-      File.delete(MemoFile.new.file_path)
+    before do
+      File.delete(ScoreFile.new.file_path) if File.exist?(ScoreFile.new.file_path)
     end
 
     it 'create new file with memo' do
@@ -29,9 +29,9 @@ describe 'run' do
 
     it 'append memo to exist file' do
       allow(StdIn).to receive(:gets).and_return("10") 
-      MemoCreater.new.run
+      ScoreCreater.new.run
       allow(StdIn).to receive(:gets).and_return("100") 
-      MemoCreater.new.run
+      ScoreCreater.new.run
       expect(file_data).to include "10\n"
       expect(file_data).to include "100\n"
     end

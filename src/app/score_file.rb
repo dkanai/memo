@@ -1,4 +1,4 @@
-class MemoFile
+class ScoreFile
 
   def file_path
     'data/memo.txt'

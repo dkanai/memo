@@ -1,4 +1,4 @@
-class MemoCreater
+class ScoreCreater
 
   def initialize
     @validator = Validator.new([
@@ -11,7 +11,7 @@ class MemoCreater
     StdOut.print(">Please enter the score.\n")
     input = StdIn.gets
     return @validator.errors.join('') if @validator.setValue(input).invalid?
-    MemoFile.new.append(input)
+    ScoreFile.new.append(input)
     ">Successfully created score\n"
   end
 
