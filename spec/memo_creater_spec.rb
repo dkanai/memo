@@ -44,7 +44,7 @@ describe 'run' do
     end
     it 'validate error when input gt 100' do
       allow(StdIn).to receive(:gets).and_return('101') 
-      expect(subject).to eq '>invalid input: grater than 100.'
+      expect(subject).to eq '>invalid input: less than 100.'
     end
   end
 
