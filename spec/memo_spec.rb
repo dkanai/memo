@@ -25,7 +25,8 @@ describe 'run' do
     expect(subject).to eq ">Successfully deleted score\n"
   end
   it do
+    MemoFile.new.append("0")
     @operation = 4
-    expect(subject).to eq ">Score Average: 50"
+    expect(subject).to eq ">Score Average: 50.0"
   end
 end

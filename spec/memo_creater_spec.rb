@@ -30,10 +30,10 @@ describe 'run' do
     it 'append memo to exist file' do
       allow(StdIn).to receive(:gets).and_return("10") 
       MemoCreater.new.run
-      allow(StdIn).to receive(:gets).and_return("11") 
+      allow(StdIn).to receive(:gets).and_return("100") 
       MemoCreater.new.run
       expect(file_data).to include "10\n"
-      expect(file_data).to include "11\n"
+      expect(file_data).to include "100\n"
     end
   end
 

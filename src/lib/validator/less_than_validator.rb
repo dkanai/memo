@@ -8,7 +8,7 @@ class LessThanValidator
   end
 
   def valid?(value)
-    value.to_i < @threshold
+    value.to_i <= @threshold
   end
 
 end
