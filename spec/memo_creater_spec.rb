@@ -1,9 +1,5 @@
 describe 'run' do
 
-  after do
-    File.delete(MemoFile.new.file_path)
-  end
-
   subject {MemoCreater.new.run}
 
   let(:file_data) {
@@ -16,18 +12,36 @@ describe 'run' do
     return file_data
   }
 
-  it 'create new file with memo' do
-    allow(StdIn).to receive(:gets).and_return('memo') 
-    subject
-    expect(file_data).to include "memo\n"
+  context 'valid' do
+    after do
+      File.delete(MemoFile.new.file_path)
+    end
+
+    it 'create new file with memo' do
+      allow(StdIn).to receive(:gets).and_return("10") 
+      subject
+      expect(file_data).to include "10\n"
+    end
+
+    it 'append memo to exist file' do
+      allow(StdIn).to receive(:gets).and_return("10") 
+      MemoCreater.new.run
+      allow(StdIn).to receive(:gets).and_return("11") 
+      MemoCreater.new.run
+      expect(file_data).to include "10\n"
+      expect(file_data).to include "11\n"
+    end
   end
 
-  it 'append memo to exist file' do
-    allow(StdIn).to receive(:gets).and_return('memo') 
-    MemoCreater.new.run
-    allow(StdIn).to receive(:gets).and_return('memo2') 
-    MemoCreater.new.run
-    expect(file_data).to include "memo\n"
-    expect(file_data).to include "memo2\n"
+  context 'invalid' do
+    it 'validate error when input not number' do
+      allow(StdIn).to receive(:gets).and_return('ten') 
+      expect(subject).to eq '>invalid input: not a number.'
+    end
+    it 'validate error when input gt 100' do
+      allow(StdIn).to receive(:gets).and_return('101') 
+      expect(subject).to eq '>invalid input: grater than 100.'
+    end
   end
+
 end
