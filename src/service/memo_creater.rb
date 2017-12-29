@@ -1,12 +1,16 @@
 class MemoCreater
 
+  def initialize
+    @validator = MemoValidator.new
+  end
+
   def run
     StdOut.print(">Please enter the score.\n")
     input = StdIn.gets
-    if !MemoValidator.new(input).numeric?
+    if !@validator.setValue(input).numeric?
       return '>invalid input: not a number.'
     end
-    if MemoValidator.new(input).gt100?
+    if @validator.setValue(input).gt100?
       return '>invalid input: grater than 100.'
     end
     MemoFile.new.append(input)

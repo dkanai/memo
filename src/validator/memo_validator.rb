@@ -1,7 +1,8 @@
 class MemoValidator
 
-  def initialize(value)
+  def setValue(value)
     @value = value
+    self
   end
 
   def numeric?
