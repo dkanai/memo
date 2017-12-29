@@ -1,6 +1,7 @@
 describe 'run' do
 
   before do
+    allow(StdOut).to receive(:print).and_return('') 
     MemoFile.new.append("memo")
     MemoFile.new.append("memo2")
   end

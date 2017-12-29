@@ -2,6 +2,10 @@ describe 'run' do
 
   subject {MemoCreater.new.run}
 
+  before do
+    allow(StdOut).to receive(:print).and_return('') 
+  end
+
   let(:file_data) {
     file_data = []
     File.open(MemoFile.new.file_path) do |file|

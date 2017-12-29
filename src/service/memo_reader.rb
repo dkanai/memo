@@ -1,7 +1,7 @@
 class MemoReader
 
   def run
-    puts ">Show all score.\n"
+    StdOut.print(">Show all score.\n")
     MemoFile.new.read_with_index
   end
 

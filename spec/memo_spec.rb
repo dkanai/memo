@@ -2,6 +2,7 @@ describe 'run' do
 
   before do
     MemoFile.new.append("memo")
+    allow(StdOut).to receive(:print).and_return('') 
   end
 
   after do
