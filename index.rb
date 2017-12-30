@@ -6,8 +6,8 @@ puts ScoreOperator.factory(ARGV[0].to_i).run
 
 
 # TODOS
-# -名前入力
-# -日付表示
-# -人ごとaverage
 # -色をつける
 # -html出力
+# -日付表示
+# -名前入力
+# -人ごとaverage
