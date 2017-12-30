@@ -1,17 +1,17 @@
 describe 'run' do
 
   before do
-    File.delete(ScoreFile.new.file_path) if File.exist?(ScoreFile.new.file_path)
+    File.delete(ScoreFile.file_path) if File.exist?(ScoreFile.file_path)
     allow(StdOut).to receive(:print).and_return('') 
-    ScoreFile.new.append("memo")
-    ScoreFile.new.append("memo2")
+    ScoreFile.append("memo")
+    ScoreFile.append("memo2")
   end
 
   subject {ScoreDeleter.new.run}
 
   let(:file_data) {
     file_data = []
-    File.open(ScoreFile.new.file_path) do |file|
+    File.open(ScoreFile.file_path) do |file|
       file.each_line do |line|
         file_data.push(line)
       end

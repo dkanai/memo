@@ -1,8 +1,8 @@
 describe 'run' do
 
   before do
-    File.delete(ScoreFile.new.file_path) if File.exist?(ScoreFile.new.file_path)
-    ScoreFile.new.append("100")
+    File.delete(ScoreFile.file_path) if File.exist?(ScoreFile.file_path)
+    ScoreFile.append("100")
     allow(StdOut).to receive(:print).and_return('') 
   end
 
@@ -23,7 +23,7 @@ describe 'run' do
     expect(subject).to eq ">Successfully deleted score\n"
   end
   it do
-    ScoreFile.new.append("0")
+    ScoreFile.append("0")
     @operation = 4
     expect(subject).to eq ">Score Average: 50.0"
   end

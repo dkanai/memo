@@ -14,7 +14,7 @@ class Validator
     !@errors.empty?
   end
 
-  def setValue(value)
+  def set_value(value)
     @value = value
     self
   end

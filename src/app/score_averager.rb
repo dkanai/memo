@@ -5,7 +5,7 @@ class ScoreAverager
   end
 
   def score_average
-    ScoreFile.new.read.map(&:chomp).map(&:to_i).average
+    ScoreFile.read.map(&:chomp).map(&:to_i).average
   end
 
 end
