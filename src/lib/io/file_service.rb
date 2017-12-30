@@ -1,4 +1,4 @@
-class FileWrapper
+class FileService
 
   def self.append(memo)
     File.open(file_path, 'a') { |f| f.puts(memo) }

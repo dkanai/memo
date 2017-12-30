@@ -1,7 +1,7 @@
 class ScoreCreater
 
   def initialize
-    @validator = Validator.new([
+    @validator = ValidatorExecutor.new([
       NumericValidator.new,
       LessThanValidator.new(100),
     ])

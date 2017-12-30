@@ -1,6 +1,6 @@
-require './src/lib/io/file_wrapper.rb'
+require './src/lib/io/file_service.rb'
 
-class ScoreFile < FileWrapper
+class ScoreFile < FileService
 
   def self.file_path
     'data/memo.txt'

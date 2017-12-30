@@ -1,4 +1,4 @@
-class Validator
+class ValidatorExecutor
 
   attr_accessor :errors
 
