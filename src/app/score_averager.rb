@@ -5,8 +5,15 @@ class ScoreAverager
   end
 
   def score_average
-    file_data = ScoreFile.new.read 
-    ((file_data.map(&:chomp!).map(&:to_i).sum).to_f / file_data.size).round(1)
+    ScoreFile.new.read.map(&:chomp).map(&:to_i).average
+  end
+
+end
+
+class Array
+
+  def average
+    (self.sum.to_f / self.size).round(1)
   end
 
 end
