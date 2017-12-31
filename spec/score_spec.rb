@@ -11,7 +11,7 @@ describe 'run' do
   it do
     @operation = 1
     allow(StdIn).to receive(:gets).and_return('10') 
-    expect(subject).to eq 'Successfully created score'
+    expect(subject).to eq ">Successfully created score\n"
   end
   it do
     @operation = 2
@@ -20,11 +20,11 @@ describe 'run' do
   it do
     allow(StdIn).to receive(:gets).and_return('1') 
     @operation = 3
-    expect(subject).to eq 'Successfully deleted score'
+    expect(subject).to eq ">Successfully deleted score\n"
   end
   it do
     ScoreFile.append("0")
     @operation = 4
-    expect(subject).to eq 'Score Average: 50.0'
+    expect(subject).to eq ">Score Average: 50.0"
   end
 end
