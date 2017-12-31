@@ -8,11 +8,11 @@ class ScoreCreater
   end
 
   def run
-    StdOut.print(">Please enter the score.\n")
+    StdOut.print('Please enter the score')
     input = StdIn.gets
     return @validator.errors.join('') if @validator.set_value(input).invalid?
     ScoreFile.append(input)
-    ">Successfully created score\n"
+    'Successfully created score'
   end
 
 end

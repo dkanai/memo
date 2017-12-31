@@ -1,9 +1,9 @@
 class ScoreDeleter
 
   def run
-    StdOut.print(">Please enter delete line number.\n")
+    StdOut.print('Please enter delete line number')
     ScoreFile.delete(StdIn.gets)
-    ">Successfully deleted score\n"
+    "Successfully deleted score"
   end
 
 end

@@ -28,9 +28,9 @@ describe 'run' do
     end
 
     it 'append memo to exist file' do
-      allow(StdIn).to receive(:gets).and_return("10") 
+      allow(StdIn).to receive(:gets).and_return('10') 
       ScoreCreater.new.run
-      allow(StdIn).to receive(:gets).and_return("100") 
+      allow(StdIn).to receive(:gets).and_return('100') 
       ScoreCreater.new.run
       expect(file_data).to include "10\n"
       expect(file_data).to include "100\n"
@@ -40,11 +40,11 @@ describe 'run' do
   context 'invalid' do
     it 'validate error when input not number' do
       allow(StdIn).to receive(:gets).and_return('ten') 
-      expect(subject).to eq '>invalid input: not a number.'
+      expect(subject).to eq 'invalid input: not a number'
     end
     it 'validate error when input gt 100' do
       allow(StdIn).to receive(:gets).and_return('101') 
-      expect(subject).to eq '>invalid input: less than 100.'
+      expect(subject).to eq 'invalid input: less than 100'
     end
   end
 
