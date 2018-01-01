@@ -8,7 +8,7 @@ class StdOut
     {
       'white' => 37,
       'red'   => 31,
-      'green' =>32
+      'green' => 32,
     }
   end
 
