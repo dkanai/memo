@@ -6,7 +6,7 @@ describe 'run' do
     allow(StdOut).to receive(:print).and_return('') 
   end
 
-  subject {ScoreOperator.new(@operation).run.result.msg}
+  subject {ScoreOperator.new(@operation).run.result}
 
   [
     [1, 'Successfully created score'],
@@ -18,7 +18,8 @@ describe 'run' do
       ScoreFile.append("0")
       @operation = operation
       allow(StdIn).to receive(:gets).and_return('10') 
-      expect(subject).to include msg
+      expect(subject.msg).to include msg
+      expect(subject.status).to eq 'success'
     end
   end
 

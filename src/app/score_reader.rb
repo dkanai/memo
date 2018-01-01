@@ -2,7 +2,7 @@ class ScoreReader
 
   def run
     StdOut.print('Show all score')
-    ScoreOperatorResult.new(ScoreFile.read_with_index)
+    ScoreOperatorResult.new('success', ScoreFile.read_with_index)
   end
 
 end

@@ -40,11 +40,12 @@ describe 'run' do
   context 'invalid' do
     it 'validate error when input not number' do
       allow(StdIn).to receive(:gets).and_return('ten') 
-      expect(subject).to eq 'invalid input: not a number'
+      expect(subject.msg).to eq 'invalid input: not a number'
+      expect(subject.status).to eq 'error'
     end
     it 'validate error when input gt 100' do
       allow(StdIn).to receive(:gets).and_return('101') 
-      expect(subject).to eq 'invalid input: less than 100'
+      expect(subject.msg).to eq 'invalid input: less than 100'
     end
   end
 
