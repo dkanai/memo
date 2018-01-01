@@ -6,7 +6,6 @@ ScoreOperator.new(ARGV[0].to_i).run.print
 
 
 # TODOS
-# -色をつける
 # -html出力
 # -日付表示
 # -名前入力
