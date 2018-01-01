@@ -1,7 +1,11 @@
 class StdOut
 
   def self.print(value)
-   puts ">#{value}\n"
+    if value.class == Array
+      puts value
+    else
+      puts ">#{value}\n"
+    end
   end
 
 end
