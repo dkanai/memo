@@ -18,7 +18,7 @@ class ScoreOperator
   end
 
   def print
-    StdOut.print(@result.msg, @result.color)
+    StdOut.print(result.msg, result.color)
   end
 
 end
