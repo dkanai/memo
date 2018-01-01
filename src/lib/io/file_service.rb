@@ -11,14 +11,9 @@ class FileService
   end
 
   def delete_line(num)
-    output = ''
-    File.open(path) do |file|
-      file.each_line do |line|
-        output << line if file.lineno != num.chop.to_i
-      end
-    end
-    open(path,"w") do |f|
-      f.write output
+    new_data = read.delete_if.with_index{|_, i| i == num.to_i-1}
+    File.open(path,"w") do |f|
+      f.write new_data.join('') if !new_data.empty?
     end
   end
 
