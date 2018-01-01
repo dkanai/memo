@@ -17,6 +17,8 @@ class ScoreOperator
   end
 
   def print
+    return StdOut.print(@result.msg, 'red') if result.status == 'error'
+    return StdOut.print(@result.msg, 'green') if result.status == 'success'
     StdOut.print(@result.msg)
   end
 

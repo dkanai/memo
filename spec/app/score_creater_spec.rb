@@ -25,6 +25,7 @@ describe 'run' do
       allow(StdIn).to receive(:gets).and_return("10") 
       subject
       expect(file_data).to include "10\n"
+      expect(subject.status).to eq 'success'
     end
 
     it 'append memo to exist file' do
