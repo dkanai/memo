@@ -1,8 +1,9 @@
 class ScoreFileLine
 
-  attr_accessor :score, :validator
+  attr_accessor :index, :score, :validator
 
-  def initialize(score)
+  def initialize(score, index = nil)
+    @index = index
     @score = score
     @validator = ValidatorExecutor.new([
       NumericValidator.new,
@@ -14,6 +15,14 @@ class ScoreFileLine
     return false if validator.set_value(score).invalid?
     Scores.new.file.append(score)
     true
+  end
+
+  def score_with_index
+    "#{index}.#{score}"
+  end
+
+  def score_with_p_tag
+    "<p>#{index}.#{score.chomp}</p>\n"
   end
 
 end

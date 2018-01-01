@@ -1,8 +1,8 @@
 class ScoreTextFormatter
 
-  def exec(data)
+  def exec(scores)
     "Show all score
-#{data.join('').chomp}"
+#{scores.map(&:score_with_index).join('').chomp}"
   end
 
 end

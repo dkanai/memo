@@ -11,7 +11,9 @@ class Scores
   end
 
   def read_with_index
-    file.read_with_index
+    file.read.map.with_index do |line, index|
+      ScoreFileLine.new(line, index + 1)
+    end
   end
 
 end

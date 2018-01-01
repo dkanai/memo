@@ -1,14 +1,8 @@
 class ScoreHtmlFormatter
 
-  def exec(data)
+  def exec(scores)
     "<h2>Show all score</h2>
-#{append_p_to(data)}"
-  end
-
-  private 
-
-  def append_p_to(data)
-    data.map{|line|"<p>#{line.chomp}</p>\n"}.join('').chomp
+#{scores.map(&:score_with_p_tag).join('').chomp}"
   end
 
 end

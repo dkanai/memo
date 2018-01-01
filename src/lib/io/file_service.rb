@@ -26,10 +26,4 @@ class FileService
     File.foreach(file_path).map { |line| line }
   end
 
-  def read_with_index
-    read.map.with_index do |line, index|
-      "#{index+1}.#{line}"
-    end
-  end
-
 end
