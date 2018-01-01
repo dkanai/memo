@@ -23,8 +23,9 @@ ruby index.rb {operation}
 
 **Point**
 - 移譲
-- ストラテジ
+- ストラテジ/State
 - ダックタイピング/ポリモフィズム
 - オープンクラス
 - ユーティリティ
-- Premitive Obsession
+- Primitive Obsession
+- Proc/block
