@@ -9,10 +9,12 @@ class ScoreCreater
 
   def run
     StdOut.print('Please enter the score')
-    input = StdIn.gets
-    return ScoreOperatorResult.new('error', @validator.errors.join('')) if @validator.set_value(input).invalid?
-    ScoreFile.append(input)
-    ScoreOperatorResult.new('success', 'Successfully created score')
+    score_file_line = ScoreFileLine.new(StdIn.gets)
+    if score_file_line.save
+      ScoreOperatorResult.new('success', 'Successfully created score')
+    else
+      ScoreOperatorResult.new('error', score_file_line.validator.errors.join(''))
+    end
   end
 
 end
