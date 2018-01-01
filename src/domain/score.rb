@@ -18,8 +18,11 @@ class Score
     true
   end
 
+  def to_s
+    "#{index}.#{person},#{score.chomp}"
+  end
 
-  def with_index
+  def to_s_with_newline
     "#{to_s}\n"
   end
 
@@ -28,21 +31,19 @@ class Score
   end
 
   def set_person_from_stdin
-    StdOut.print('Please enter the person')
-    self.person = StdIn.gets
-    self
+    set_to('person') {|std_in| self.person = std_in}
   end
 
   def set_score_from_stdin
-    StdOut.print('Please enter the score')
-    self.score = StdIn.gets
-    self
+    set_to('score') {|std_in| self.score = std_in}
   end
-  
+
   private 
 
-  def to_s
-    "#{index}.#{person},#{score.chomp}"
+  def set_to(attribute_name)
+    StdOut.print("Please enter the #{attribute_name}")
+    yield(StdIn.gets)
+    self
   end
 
 end

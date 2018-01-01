@@ -2,7 +2,7 @@ class ScoreTextFormatter
 
   def exec(scores)
     "Show all score
-#{scores.map(&:with_index).join('').chomp}"
+#{scores.map(&:to_s_with_newline).join('').chomp}"
   end
 
 end
