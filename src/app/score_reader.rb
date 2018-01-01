@@ -1,8 +1,14 @@
 class ScoreReader
 
+  def initialize
+    @formatter = ScoreTextFormatter.new
+  end
+
   def run
-    StdOut.print('Show all score')
-    ScoreOperatorResult.new('normal', ScoreFile.read_with_index)
+    ScoreOperatorResult.new(
+      'normal',
+      @formatter.exec(ScoreFile.read_with_index)
+    )
   end
 
 end
