@@ -7,13 +7,7 @@ describe 'run' do
   end
 
   let(:file_data) {
-    file_data = []
-    File.open(Scores.new.file.file_path) do |file|
-      file.each_line do |line|
-        file_data.push(line)
-      end
-    end
-    return file_data
+    File.foreach(Scores.new.file.file_path).map {|line| line}
   }
 
   context 'valid' do
@@ -24,11 +18,10 @@ describe 'run' do
     it 'create new file' do
       allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
-      subject
+      expect(subject.status).to eq 'success'
       expect(file_data.count).to eq 1
       expect(file_data.to_s).to include "10"
       expect(file_data.to_s).to include "kanai"
-      expect(subject.status).to eq 'success'
     end
 
     it 'append score to exist file' do

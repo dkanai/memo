@@ -14,7 +14,7 @@ describe 'run' do
 
   [
     ['create', 'Successfully created score', 'success'],
-    ['read', "1.100\n", 'normal'],
+    ['read', "1.kanai,100\n", 'normal'],
     ['read_as_html', "<h2>Show all score</h2>", 'normal'],
     ['delete', 'Successfully deleted score', 'success'],
     ['average', 'Score Average: 50.0', 'normal'],

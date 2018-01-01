@@ -14,16 +14,16 @@ class Score
 
   def save
     return false if validator.set_value(score).invalid?
-    Scores.new.file.append("#{person},#{score}")
+    Scores.new.file.append("#{person.chomp},#{score}")
     true
   end
 
   def with_index
-    "#{index}.#{score}"
+    "#{index}.#{person},#{score}\n"
   end
 
   def p_tag
-    "<p>#{index}.#{score.chomp}</p>\n"
+    "<p>#{index}.#{person},#{score.chomp}</p>\n"
   end
 
   def set_person_from_stdin
