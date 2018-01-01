@@ -1,4 +1,4 @@
-class ScoreFileLine
+class Score
 
   attr_accessor :index, :score, :validator
 

@@ -2,7 +2,7 @@ class ScoreCreater
 
   def run
     StdOut.print('Please enter the score')
-    score_file_line = ScoreFileLine.new(StdIn.gets)
+    score_file_line = Score.new(StdIn.gets)
     if score_file_line.save
       ScoreOperatorResult.new('success', 'Successfully created score')
     else

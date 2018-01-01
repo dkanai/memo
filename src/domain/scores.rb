@@ -10,9 +10,9 @@ class Scores
     file.read.map(&:chomp).map(&:to_i).average
   end
 
-  def read_with_index
+  def read
     file.read.map.with_index do |line, index|
-      ScoreFileLine.new(line, index + 1)
+      Score.new(line, index + 1)
     end
   end
 
