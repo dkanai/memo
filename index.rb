@@ -2,7 +2,7 @@ Dir.glob('src/**/*.rb').each { |file|
   require File.expand_path("../#{file}", __FILE__)
 }
 
-ScoreOperator.new(ARGV[0].to_i).run.print
+ScoreOperator.new(ARGV[0]).run.print
 
 # TODOS
 # -日付表示

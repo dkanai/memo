@@ -8,11 +8,11 @@ class ScoreOperator
 
   def run
     @result = {
-      1 => ScoreCreater.new,
-      2 => ScoreReader.new(ScoreTextFormatter.new),
-      3 => ScoreDeleter.new,
-      4 => ScoreAverageCalculator.new,
-      5 => ScoreReader.new(ScoreHtmlFormatter.new),
+      'create' =>       ScoreCreater.new,
+      'read' =>         ScoreReader.new(ScoreTextFormatter.new),
+      'read_as_html' => ScoreReader.new(ScoreHtmlFormatter.new),
+      'delete' =>       ScoreDeleter.new,
+      'average' =>      ScoreAverageCalculator.new,
     }[@operation].run
     self
   end

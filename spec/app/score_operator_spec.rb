@@ -11,11 +11,11 @@ describe 'run' do
   subject {ScoreOperator.new(@operation).run.result}
 
   [
-    [1, 'Successfully created score', 'success'],
-    [2, "1.100\n", 'normal'],
-    [3, 'Successfully deleted score', 'success'],
-    [4, 'Score Average: 50.0', 'normal'],
-    [5, "<h2>Show all score</h2>", 'normal'],
+    ['create', 'Successfully created score', 'success'],
+    ['read', "1.100\n", 'normal'],
+    ['read_as_html', "<h2>Show all score</h2>", 'normal'],
+    ['delete', 'Successfully deleted score', 'success'],
+    ['average', 'Score Average: 50.0', 'normal'],
   ].each do |operation, msg, status|
     it "got '#{msg}' when run opration '#{operation}'" do
       @operation = operation
@@ -36,19 +36,19 @@ describe 'print' do
   subject {ScoreOperator.new(@operation).run.print}
 
   it 'got success color' do
-    @operation = 1
+    @operation = 'create'
     allow(StdIn).to receive(:gets).and_return('10') 
     expect {subject}.to output(/32m/).to_stdout
   end
 
   it 'got error color' do
-    @operation = 1
+    @operation = 'create'
     allow(StdIn).to receive(:gets).and_return('a') 
     expect {subject}.to output(/31m/).to_stdout
   end
 
   it 'got read color' do
-    @operation = 2
+    @operation = 'read'
     expect {subject}.to output(/37m/).to_stdout
   end
 
