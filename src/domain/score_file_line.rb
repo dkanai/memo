@@ -11,7 +11,9 @@ class ScoreFileLine
   end
 
   def save
+    return false if validator.set_value(score).invalid?
     ScoreFile.append(score)
+    true
   end
 
 end
