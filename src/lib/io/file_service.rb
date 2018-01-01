@@ -10,11 +10,11 @@ class FileService
     File.open(file_path, 'a') { |f| f.puts(memo) }
   end
 
-  def delete(line_num)
+  def delete_line(num)
     output = ''
     File.open(file_path) do |file|
       file.each_line do |line|
-        output << line if file.lineno != line_num.chop.to_i
+        output << line if file.lineno != num.chop.to_i
       end
     end
     open(file_path,"w") do |f|
