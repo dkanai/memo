@@ -1,6 +1,6 @@
 class ValidatorExecutor
 
-  attr_accessor :errors
+  attr_accessor :errors, :value
 
   def initialize(validators)
     @validators = validators
@@ -9,13 +9,13 @@ class ValidatorExecutor
 
   def invalid?
     @errors = @validators.collect do |validator|
-      validator.msg if !validator.valid?(@value)
+      validator.msg if !validator.valid?(value)
     end.compact
     !@errors.empty?
   end
 
   def set_value(value)
-    @value = value
+    self.value = value
     self
   end
 

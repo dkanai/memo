@@ -1,7 +1,6 @@
 class ScoreOperatorResult
 
-  attr_accessor :status
-  attr_accessor :msg
+  attr_accessor :status, :msg
 
   def initialize(status, msg)
     @status = status
