@@ -11,7 +11,7 @@ class ScoreOperator
       1 => ScoreCreater.new,
       2 => ScoreReader.new,
       3 => ScoreDeleter.new,
-      4 => ScoreAverager.new,
+      4 => ScoreAverageCalculator.new,
     }[@operation].run
     self
   end

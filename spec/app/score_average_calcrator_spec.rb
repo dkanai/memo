@@ -1,6 +1,6 @@
 describe 'run' do
 
-  subject {ScoreAverager.new.run}
+  subject {ScoreAverageCalculator.new.run}
 
   before do
     File.delete(ScoreFile.file_path) if File.exist?(ScoreFile.file_path)
