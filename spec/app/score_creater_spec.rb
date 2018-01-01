@@ -22,19 +22,22 @@ describe 'run' do
     end
 
     it 'create new file with memo' do
-      allow(StdIn).to receive(:gets).and_return("10") 
+      allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
+      allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       subject
-      expect(file_data).to include "10\n"
+      expect(file_data.to_s).to include "10"
+      expect(file_data.to_s).to include "kanai"
       expect(subject.status).to eq 'success'
     end
 
     it 'append memo to exist file' do
-      allow(StdIn).to receive(:gets).and_return('10') 
+      allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
+      allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       ScoreCreater.new.run
-      allow(StdIn).to receive(:gets).and_return('100') 
+      allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("100", nil, "kanai")) 
       ScoreCreater.new.run
-      expect(file_data).to include "10\n"
-      expect(file_data).to include "100\n"
+      expect(file_data.to_s).to include "10"
+      expect(file_data.to_s).to include "100"
     end
   end
 

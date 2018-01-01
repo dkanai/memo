@@ -1,10 +1,11 @@
 class Score
 
-  attr_accessor :index, :score, :validator
+  attr_accessor :index, :score, :person, :validator
 
-  def initialize(score, index = nil)
+  def initialize(score = nil, index = nil, person = nil)
     @index = index
     @score = score
+    @person = person
     @validator = ValidatorExecutor.new([
       NumericValidator.new,
       LessThanValidator.new(100),
@@ -13,7 +14,7 @@ class Score
 
   def save
     return false if validator.set_value(score).invalid?
-    Scores.new.file.append(score)
+    Scores.new.file.append("#{person},#{score}")
     true
   end
 
@@ -23,6 +24,18 @@ class Score
 
   def p_tag
     "<p>#{index}.#{score.chomp}</p>\n"
+  end
+
+  def set_person_from_stdin
+    StdOut.print('Please enter the person')
+    self.person = StdIn.gets
+    self
+  end
+
+  def set_score_from_stdin
+    StdOut.print('Please enter the score')
+    self.score = StdIn.gets
+    self
   end
 
 end
