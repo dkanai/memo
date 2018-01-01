@@ -15,6 +15,7 @@ describe 'run' do
     [2, "1.100\n", 'normal'],
     [3, 'Successfully deleted score', 'success'],
     [4, 'Score Average: 50.0', 'normal'],
+    [5, "<h2>Show all score</h2>", 'normal'],
   ].each do |operation, msg, status|
     it "got '#{msg}' when run opration '#{operation}'" do
       @operation = operation

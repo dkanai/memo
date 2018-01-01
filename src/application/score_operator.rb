@@ -9,9 +9,10 @@ class ScoreOperator
   def run
     @result = {
       1 => ScoreCreater.new,
-      2 => ScoreReader.new,
+      2 => ScoreReader.new(ScoreTextFormatter.new),
       3 => ScoreDeleter.new,
       4 => ScoreAverageCalculator.new,
+      5 => ScoreReader.new(ScoreHtmlFormatter.new),
     }[@operation].run
     self
   end

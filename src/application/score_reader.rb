@@ -1,7 +1,7 @@
 class ScoreReader
 
-  def initialize
-    @formatter = ScoreTextFormatter.new
+  def initialize(formatter)
+    @formatter = formatter
   end
 
   def run
