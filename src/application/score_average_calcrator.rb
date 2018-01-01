@@ -4,6 +4,4 @@ class ScoreAverageCalculator
     ScoreOperatorResult.new('normal', "Score Average: #{Scores.new.average}")
   end
 
-  private 
-
 end
