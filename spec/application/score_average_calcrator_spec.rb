@@ -3,7 +3,7 @@ describe 'run' do
   subject {ScoreAverageCalculator.new.run}
 
   before do
-    File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     allow(StdOut).to receive(:print).and_return('') 
     Scores.new.file.append("nil,54")
     Scores.new.file.append("nil,67")

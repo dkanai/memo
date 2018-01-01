@@ -1,7 +1,7 @@
 describe 'read' do
 
   before do
-    File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     Scores.new.file.append("kanai,100")
   end
 

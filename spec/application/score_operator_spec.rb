@@ -1,7 +1,7 @@
 describe 'run' do
 
   before do
-    File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     Scores.new.file.append("kanai,100")
     Scores.new.file.append("kanai,0")
     allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
@@ -31,7 +31,7 @@ end
 describe 'print' do
 
   before do
-    File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     Scores.new.file.append("kanai,100")
   end
 

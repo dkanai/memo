@@ -1,7 +1,7 @@
 describe 'run' do
 
   before do
-    File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     allow(StdOut).to receive(:print).and_return('') 
     Scores.new.file.append("kanai,10")
     Scores.new.file.append("kanai,20")

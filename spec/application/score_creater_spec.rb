@@ -7,12 +7,12 @@ describe 'run' do
   end
 
   let(:file_data) {
-    File.foreach(Scores.new.file.file_path).map {|line| line}
+    File.foreach(Scores.new.file.path).map {|line| line}
   }
 
   context 'valid' do
     before do
-      File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+      File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     end
 
     it 'create new file' do
