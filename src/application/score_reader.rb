@@ -7,7 +7,7 @@ class ScoreReader
   def run
     ScoreOperatorResult.new(
       'normal',
-      @formatter.exec(ScoreFile.read_with_index)
+      @formatter.exec(Scores.read_with_index)
     )
   end
 

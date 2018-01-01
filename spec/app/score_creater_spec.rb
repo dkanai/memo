@@ -8,7 +8,7 @@ describe 'run' do
 
   let(:file_data) {
     file_data = []
-    File.open(ScoreFile.file_path) do |file|
+    File.open(Scores.file_path) do |file|
       file.each_line do |line|
         file_data.push(line)
       end
@@ -18,7 +18,7 @@ describe 'run' do
 
   context 'valid' do
     before do
-      File.delete(ScoreFile.file_path) if File.exist?(ScoreFile.file_path)
+      File.delete(Scores.file_path) if File.exist?(Scores.file_path)
     end
 
     it 'create new file with memo' do

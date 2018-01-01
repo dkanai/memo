@@ -1,10 +1,10 @@
 describe 'run' do
 
   before do
-    File.delete(ScoreFile.file_path) if File.exist?(ScoreFile.file_path)
+    File.delete(Scores.file_path) if File.exist?(Scores.file_path)
     allow(StdOut).to receive(:print).and_return('') 
-    ScoreFile.append("10")
-    ScoreFile.append("20")
+    Scores.append("10")
+    Scores.append("20")
   end
 
   context 'text formatter' do

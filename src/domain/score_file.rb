@@ -1,6 +1,10 @@
 require './src/lib/io/file_service.rb'
 
-class ScoreFile < FileService
+class Scores < FileService
+
+  def initialize
+    @file_service = FileService.new
+  end
 
   def self.file_path
     'data/memo.txt'
