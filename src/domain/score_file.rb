@@ -6,4 +6,8 @@ class ScoreFile < FileService
     'data/memo.txt'
   end
 
+  def self.average
+    read.map(&:chomp).map(&:to_i).average
+  end
+
 end
