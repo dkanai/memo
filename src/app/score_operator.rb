@@ -3,7 +3,6 @@ class ScoreOperator
   attr_accessor :result
 
   def initialize(operation)
-    @result = ScoreOperatorResult.new('dummy')
     @operation = operation
   end
 
