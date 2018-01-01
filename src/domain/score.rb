@@ -17,11 +17,11 @@ class Score
     true
   end
 
-  def score_with_index
+  def with_index
     "#{index}.#{score}"
   end
 
-  def score_with_p_tag
+  def p_tag
     "<p>#{index}.#{score.chomp}</p>\n"
   end
 
