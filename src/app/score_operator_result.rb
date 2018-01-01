@@ -1,4 +1,4 @@
-class ScoreOperaterResult
+class ScoreOperatorResult
 
   attr_accessor :msg
 

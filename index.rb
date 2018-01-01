@@ -2,7 +2,7 @@ Dir.glob('src/**/*.rb').each { |file|
   require File.expand_path("../#{file}", __FILE__)
 }
 
-StdOut.print(ScoreOperator.factory(ARGV[0].to_i).run)
+ScoreOperator.new(ARGV[0].to_i).run.print
 
 
 # TODOS

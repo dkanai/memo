@@ -12,7 +12,7 @@ class ScoreCreater
     input = StdIn.gets
     return @validator.errors.join('') if @validator.set_value(input).invalid?
     ScoreFile.append(input)
-    ScoreOperaterResult.new('Successfully created score')
+    ScoreOperatorResult.new('Successfully created score')
   end
 
 end

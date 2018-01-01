@@ -1,7 +1,7 @@
 class ScoreAverager
 
   def run
-    ScoreOperaterResult.new("Score Average: #{score_average}")
+    ScoreOperatorResult.new("Score Average: #{score_average}")
   end
 
   def score_average
