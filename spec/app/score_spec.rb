@@ -6,7 +6,7 @@ describe 'run' do
     allow(StdOut).to receive(:print).and_return('') 
   end
 
-  subject {ScoreOperator.factory(@operation).run}
+  subject {ScoreOperator.factory(@operation).run.msg}
 
   it do
     @operation = 1

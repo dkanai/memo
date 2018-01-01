@@ -10,8 +10,8 @@ describe 'run' do
   subject {ScoreReader.new.run}
 
   it 'read file memo with line number' do
-    expect(subject).to include "1.memo\n"
-    expect(subject).to include "2.memo2\n"
+    expect(subject.msg).to include "1.memo\n"
+    expect(subject.msg).to include "2.memo2\n"
   end
 
 end

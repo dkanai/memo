@@ -14,7 +14,7 @@ describe 'run' do
   end
 
   it 'read file memo with line number' do
-    expect(subject).to include "48.7"
+    expect(subject.msg).to include "48.7"
   end
 
 end
