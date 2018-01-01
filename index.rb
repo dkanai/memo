@@ -4,9 +4,7 @@ Dir.glob('src/**/*.rb').each { |file|
 
 ScoreOperator.new(ARGV[0].to_i).run.print
 
-
 # TODOS
-# -html出力
 # -日付表示
 # -名前入力
 # -人ごとaverage
