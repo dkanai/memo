@@ -19,6 +19,7 @@ ruby index.rb {operation}
 6. スコアの平均を求める
 7. スコア登録成功、validationエラーの出力に色をつける
 8. スコアをhtmlフォーマットで読み込む
+9. スコア情報に名前を追加(create, readに反映)
 
 **Point**
 - 移譲

@@ -18,12 +18,13 @@ class Score
     true
   end
 
+
   def with_index
-    "#{index}.#{person},#{score}\n"
+    "#{to_s}\n"
   end
 
   def p_tag
-    "<p>#{index}.#{person},#{score.chomp}</p>\n"
+    "<p>#{to_s}</p>\n"
   end
 
   def set_person_from_stdin
@@ -36,6 +37,12 @@ class Score
     StdOut.print('Please enter the score')
     self.score = StdIn.gets
     self
+  end
+  
+  private 
+
+  def to_s
+    "#{index}.#{person},#{score.chomp}"
   end
 
 end

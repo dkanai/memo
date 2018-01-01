@@ -3,8 +3,3 @@ Dir.glob('src/**/*.rb').each { |file|
 }
 
 ScoreOperator.new(ARGV[0]).run.print
-
-# TODOS
-# -日付表示
-# -名前入力
-# -人ごとaverage
