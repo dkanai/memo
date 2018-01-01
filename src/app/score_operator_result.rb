@@ -8,4 +8,11 @@ class ScoreOperatorResult
     @msg = msg
   end
 
+  def color
+    {
+      'error' => 'red',
+      'success' => 'green',
+    }.fetch(status, 'white')
+  end
+
 end
