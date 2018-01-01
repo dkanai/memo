@@ -1,14 +1,14 @@
-*exec*
+**Exec**
 ruby index.rb {operation}
 
-*operation*
+**Operation**
 - create 
 - read
 - delete
 - average
 - read_as_html
 
-*BackLog*
+**BackLog**
 1. スコアをファイルに登録する
 2. スコアをファイルに追記する
 3. スコアを全て読み込む
@@ -18,7 +18,7 @@ ruby index.rb {operation}
 7. スコア登録成功、validationエラーの出力に色をつける
 8. スコアをhtmlフォーマットで読み込む
 
-*Point*
+**Point**
 - 移譲
 - ストラテジ
 - ダックタイピング/ポリモフィズム
