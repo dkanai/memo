@@ -1,5 +1,7 @@
 **Exec**
+```
 ruby index.rb {operation}
+```
 
 **Operation**
 - create 
