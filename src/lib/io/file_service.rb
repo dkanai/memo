@@ -1,10 +1,16 @@
 class FileService
 
-  def self.append(memo)
+  attr_reader :file_path
+
+  def initialize(path)
+    @file_path = path
+  end
+
+  def append(memo)
     File.open(file_path, 'a') { |f| f.puts(memo) }
   end
 
-  def self.delete(line_num)
+  def delete(line_num)
     output = ''
     File.open(file_path) do |file|
       file.each_line do |line|
@@ -16,11 +22,11 @@ class FileService
     end
   end
 
-  def self.read
+  def read
     File.foreach(file_path).map { |line| line }
   end
 
-  def self.read_with_index
+  def read_with_index
     read.map.with_index do |line, index|
       "#{index+1}.#{line}"
     end

@@ -1,17 +1,15 @@
 require './src/lib/io/file_service.rb'
 
-class Scores < FileService
+class Scores
+
+  attr_reader :file
 
   def initialize
-    @file_service = FileService.new
+    @file = FileService.new('data/memo.txt')
   end
 
-  def self.file_path
-    'data/memo.txt'
-  end
-
-  def self.average
-    read.map(&:chomp).map(&:to_i).average
+  def average
+    file.read.map(&:chomp).map(&:to_i).average
   end
 
 end

@@ -1,9 +1,9 @@
 describe 'run' do
 
   before do
-    File.delete(Scores.file_path) if File.exist?(Scores.file_path)
-    Scores.append("100")
-    Scores.append("0")
+    File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+    Scores.new.file.append("100")
+    Scores.new.file.append("0")
     allow(StdIn).to receive(:gets).and_return('10') 
     allow(StdOut).to receive(:print).and_return('') 
   end
@@ -29,8 +29,8 @@ end
 describe 'print' do
 
   before do
-    File.delete(Scores.file_path) if File.exist?(Scores.file_path)
-    Scores.append("100")
+    File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
+    Scores.new.file.append("100")
   end
 
   subject {ScoreOperator.new(@operation).run.print}
