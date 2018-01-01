@@ -21,16 +21,17 @@ describe 'run' do
       File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
     end
 
-    it 'create new file with memo' do
+    it 'create new file' do
       allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       subject
+      expect(file_data.count).to eq 1
       expect(file_data.to_s).to include "10"
       expect(file_data.to_s).to include "kanai"
       expect(subject.status).to eq 'success'
     end
 
-    it 'append memo to exist file' do
+    it 'append score to exist file' do
       allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       ScoreCreater.new.run

@@ -3,8 +3,8 @@ describe 'run' do
   before do
     File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
     allow(StdOut).to receive(:print).and_return('') 
-    Scores.new.file.append("10")
-    Scores.new.file.append("20")
+    Scores.new.file.append("kanai,10")
+    Scores.new.file.append("kanai,20")
   end
 
   context 'text formatter' do

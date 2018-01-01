@@ -7,12 +7,13 @@ class Scores
   end
 
   def average
-    file.read.map(&:chomp).map(&:to_i).average
+    read.map(&:score).map(&:to_i).average
   end
 
   def read
     file.read.map.with_index do |line, index|
-      Score.new(line, index + 1)
+      data = line.split(',')
+      Score.new(data[1]&.chomp, index + 1, data[0])
     end
   end
 

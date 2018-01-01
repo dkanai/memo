@@ -2,8 +2,10 @@ describe 'run' do
 
   before do
     File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
-    Scores.new.file.append("100")
-    Scores.new.file.append("0")
+    Scores.new.file.append("kanai,100")
+    Scores.new.file.append("kanai,0")
+    allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
+    allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
     allow(StdIn).to receive(:gets).and_return('10') 
     allow(StdOut).to receive(:print).and_return('') 
   end
@@ -30,20 +32,22 @@ describe 'print' do
 
   before do
     File.delete(Scores.new.file.file_path) if File.exist?(Scores.new.file.file_path)
-    Scores.new.file.append("100")
+    Scores.new.file.append("kanai,100")
   end
 
   subject {ScoreOperator.new(@operation).run.print}
 
   it 'got success color' do
     @operation = 'create'
-    allow(StdIn).to receive(:gets).and_return('10') 
+    allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
+    allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
     expect {subject}.to output(/32m/).to_stdout
   end
 
   it 'got error color' do
     @operation = 'create'
-    allow(StdIn).to receive(:gets).and_return('a') 
+    allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
+    allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("a", nil, "kanai")) 
     expect {subject}.to output(/31m/).to_stdout
   end
 

@@ -6,8 +6,8 @@ class FileService
     @file_path = path
   end
 
-  def append(memo)
-    File.open(file_path, 'a') { |f| f.puts(memo) }
+  def append(input)
+    File.open(file_path, 'a') { |f| f.puts(input) }
   end
 
   def delete_line(num)
