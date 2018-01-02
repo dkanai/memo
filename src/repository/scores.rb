@@ -3,7 +3,7 @@ class Scores
   attr_reader :file
 
   def initialize
-    @file = FileService.new('data/memo.txt')
+    @file = FileService.new('data/score.txt')
   end
 
   def average
