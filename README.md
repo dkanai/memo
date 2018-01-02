@@ -22,10 +22,11 @@ ruby index.rb {operation}
 9. スコア情報に名前を追加(create, readに反映)
 
 **Point**
-- 移譲
+- 移譲(delegate)
 - ストラテジ/State
 - ダックタイピング/ポリモフィズム
 - オープンクラス
 - ユーティリティ
 - Primitive Obsession
 - Proc/block
+- 遅延評価/eacy cache
