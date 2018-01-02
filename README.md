@@ -23,6 +23,7 @@ ruby index.rb {operation}
 
 **Point**
 - 移譲(delegate)
+- ファサード
 - ストラテジ/State
 - ダックタイピング/ポリモフィズム
 - オープンクラス
