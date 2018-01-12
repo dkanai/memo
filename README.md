@@ -13,6 +13,7 @@ ruby index.rb {operation}
 **概要**
 - テストは任意
 - 個人GitにPUSH
+- ストアはテキストファイル
 
 **BackLog**
 - 1st
