@@ -8,6 +8,7 @@ class FileService
 
   def append(input)
     File.open(path, 'a') { |f| f.puts(input) }
+    self
   end
 
   def delete_line(num)

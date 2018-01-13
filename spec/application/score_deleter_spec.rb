@@ -3,8 +3,9 @@ describe 'run' do
   before do
     File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     allow(StdOut).to receive(:print).and_return('') 
-    Scores.new.file.append("nil,10")
-    Scores.new.file.append("nil,20")
+    Scores.new.file
+          .append("nil,10")
+          .append("nil,20")
   end
 
   subject {ScoreDeleter.new.run}

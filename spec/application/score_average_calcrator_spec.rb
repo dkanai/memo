@@ -5,12 +5,13 @@ describe 'run' do
   before do
     File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
     allow(StdOut).to receive(:print).and_return('') 
-    Scores.new.file.append("nil,54")
-    Scores.new.file.append("nil,67")
-    Scores.new.file.append("nil,68")
-    Scores.new.file.append("nil,99")
-    Scores.new.file.append("nil,3")
-    Scores.new.file.append("nil,1")
+    Scores.new.file
+          .append("nil,54")
+          .append("nil,67")
+          .append("nil,68")
+          .append("nil,99")
+          .append("nil,3")
+          .append("nil,1")
   end
 
   it 'read file memo with line number' do
