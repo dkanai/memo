@@ -1,11 +1,11 @@
 describe 'read' do
 
   before do
-    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
-    Scores.new.file.append("kanai,100")
+    File.delete(Scores.new.db.path) if File.exist?(Scores.new.db.path)
+    Scores.new.db.create("kanai,100")
   end
 
-  subject{Scores.new.read}
+  subject{Scores.new.all}
 
   it 'read' do
     expect(subject[0].person).to eq 'kanai'

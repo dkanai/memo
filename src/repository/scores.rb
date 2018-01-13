@@ -1,17 +1,17 @@
 class Scores
 
-  attr_reader :file
+  attr_reader :db
 
   def initialize
-    @file = FileService.new('data/score.txt')
+    @db = FileService.new('data/score.txt')
   end
 
   def average
-    read.map(&:score).map(&:to_i).average
+    all.map(&:score).map(&:to_i).average
   end
 
-  def read
-    @scores ||= file.read.map.with_index do |line, index|
+  def all
+    @scores ||= db.all.map.with_index do |line, index|
       data = line.split(',')
       Score.new(data[1].chomp, index + 1, data[0])
     end

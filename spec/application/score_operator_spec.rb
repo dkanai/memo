@@ -1,10 +1,10 @@
 describe 'run' do
 
   before do
-    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
-    Scores.new.file
-          .append("kanai,100")
-          .append("kanai,0")
+    File.delete(Scores.new.db.path) if File.exist?(Scores.new.db.path)
+    Scores.new.db
+          .create("kanai,100")
+          .create("kanai,0")
     allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
     allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
     allow(StdIn).to receive(:gets).and_return('10') 
@@ -32,8 +32,8 @@ end
 describe 'print' do
 
   before do
-    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
-    Scores.new.file.append("kanai,100")
+    File.delete(Scores.new.db.path) if File.exist?(Scores.new.db.path)
+    Scores.new.db.create("kanai,100")
   end
 
   subject {ScoreOperator.new(@operation).run.print}

@@ -6,19 +6,19 @@ class FileService
     @path = path
   end
 
-  def append(input)
+  def create(input)
     File.open(path, 'a') { |f| f.puts(input) }
     self
   end
 
-  def delete_line(num)
-    new_data = read.delete_if.with_index{|_, i| i == num.to_i-1}
+  def delete(num)
+    new_data = all.delete_if.with_index{|_, i| i == num.to_i-1}
     File.open(path,"w") do |f|
       f.write new_data.join('') if !new_data.empty?
     end
   end
 
-  def read
+  def all
     File.foreach(path).map { |line| line }
   end
 

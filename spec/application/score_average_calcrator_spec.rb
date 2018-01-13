@@ -3,15 +3,15 @@ describe 'run' do
   subject {ScoreAverageCalculator.new.run}
 
   before do
-    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
+    File.delete(Scores.new.db.path) if File.exist?(Scores.new.db.path)
     allow(StdOut).to receive(:print).and_return('') 
-    Scores.new.file
-          .append("nil,54")
-          .append("nil,67")
-          .append("nil,68")
-          .append("nil,99")
-          .append("nil,3")
-          .append("nil,1")
+    Scores.new.db
+          .create("nil,54")
+          .create("nil,67")
+          .create("nil,68")
+          .create("nil,99")
+          .create("nil,3")
+          .create("nil,1")
   end
 
   it 'read file memo with line number' do

@@ -1,11 +1,11 @@
 describe 'run' do
 
   before do
-    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
+    File.delete(Scores.new.db.path) if File.exist?(Scores.new.db.path)
     allow(StdOut).to receive(:print).and_return('') 
-    Scores.new.file
-          .append("kanai,10")
-          .append("kanai,20")
+    Scores.new.db
+          .create("kanai,10")
+          .create("kanai,20")
   end
 
   context 'text formatter' do

@@ -7,12 +7,12 @@ describe 'run' do
   end
 
   let(:file_data) {
-    File.foreach(Scores.new.file.path).map {|line| line}
+    File.foreach(Scores.new.db.path).map {|line| line}
   }
 
   context 'valid' do
     before do
-      File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
+      File.delete(Scores.new.db.path) if File.exist?(Scores.new.db.path)
     end
 
     it 'create new file' do
@@ -24,7 +24,7 @@ describe 'run' do
       expect(file_data.to_s).to include "kanai"
     end
 
-    it 'append score to exist file' do
+    it 'create score to exist file' do
       allow_any_instance_of(Score).to receive(:set_person_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       allow_any_instance_of(Score).to receive(:set_score_from_stdin).and_return(Score.new("10", nil, "kanai")) 
       ScoreCreater.new.run

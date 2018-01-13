@@ -1,18 +1,18 @@
 describe 'run' do
 
   before do
-    File.delete(Scores.new.file.path) if File.exist?(Scores.new.file.path)
+    File.delete(Scores.new.db.path) if File.exist?(Scores.new.db.path)
     allow(StdOut).to receive(:print).and_return('') 
-    Scores.new.file
-          .append("nil,10")
-          .append("nil,20")
+    Scores.new.db
+          .create("nil,10")
+          .create("nil,20")
   end
 
   subject {ScoreDeleter.new.run}
 
   let(:file_data) {
     file_data = []
-    File.open(Scores.new.file.path) do |file|
+    File.open(Scores.new.db.path) do |file|
       file.each_line do |line|
         file_data.push(line)
       end

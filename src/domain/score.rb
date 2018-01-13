@@ -14,7 +14,7 @@ class Score
 
   def save
     return false if validator.set_value(score).invalid?
-    Scores.new.file.append("#{person.chomp},#{score}")
+    Scores.new.db.create("#{person.chomp},#{score}")
     true
   end
 
