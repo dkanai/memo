@@ -11,9 +11,8 @@ class Scores
   end
 
   def all
-    @scores ||= db.all.map.with_index do |line, index|
-      data = line.split(',')
-      Score.new(data[1].chomp, index + 1, data[0])
+    @scores ||= db.all.map.with_index do |score, index|
+      Score.new(score.chomp, index + 1)
     end
   end
 

@@ -8,17 +8,16 @@ class ScoreOperator
 
   def run
     @result = {
-      'create' =>       ScoreCreater.new,
-      'read' =>         ScoreReader.new(ScoreTextFormatter.new),
-      'read_as_html' => ScoreReader.new(ScoreHtmlFormatter.new),
-      'delete' =>       ScoreDeleter.new,
-      'average' =>      ScoreAverageCalculator.new,
+      'create' =>  ScoreCreater.new,
+      'read' =>    ScoreReader.new(ScoreTextFormatter.new),
+      'delete' =>  ScoreDeleter.new,
+      'average' => ScoreAverageCalculator.new,
     }[@operation].run
     self
   end
 
   def print
-    StdOut.print(result.msg, result.color)
+    StdOut.print(result.msg)
   end
 
 end

@@ -5,10 +5,7 @@ class ScoreReader
   end
 
   def run
-    ScoreOperatorResult.new(
-      'normal',
-      @formatter.exec(Scores.new.all)
-    )
+    ScoreOperatorResult.new(@formatter.exec(Scores.new.all))
   end
 
 end
