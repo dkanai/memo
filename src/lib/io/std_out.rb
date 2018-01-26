@@ -1,7 +1,7 @@
 class StdOut
 
   def self.print(value)
-   puts "#{value}\n"
+   puts ">#{value}\n"
   end
 
 end
